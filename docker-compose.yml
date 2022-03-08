@@ -1,0 +1,16 @@
+# Use root/root as user/password credentials
+version: '3.1'
+
+services:
+  order-service:
+    build: .
+    ports:
+      - 8080:8080
+    networks:
+      - actuator
+      
+networks:
+  actuator:
+    name: actuator
+    driver: bridge
+    external: false
