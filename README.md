@@ -1,17 +1,17 @@
 # Lottery System
 
-**Lottery System Application using Spring Boot**
+##### Lottery System Application using Spring Boot
 
 - The in-memory database used is H2.
 - RESTful APIs are exposed to front-end application. 
 
-**Test the Lottery System APIs using postman collection or cURLs**
+##### Test the Lottery System APIs using postman collection or cURLs
 
-Postman collection:
+**Postman collection:**
 
 [https://www.getpostman.com/collections/475d3dfdd7c9d2561ad2](https://www.getpostman.com/collections/475d3dfdd7c9d2561ad2)
 
-- Create a user with details pay load.
+**Create a user with details pay load.**
 
 	curl --location --request POST 'http://localhost:8080/user' \
 	--header 'Content-Type: application/json' \
@@ -20,11 +20,11 @@ Postman collection:
     	"email": "panda@gmail.com"
 	}'
 
-- User gets the Active draws that is eligible to participate.
+**User gets the Active draws that is eligible to participate.**
 
 	curl --location --request GET 'http://localhost:8080/draws?status=ACTIVE'
 
-- User buys the ticket for the active draw.
+**User buys the ticket for the active draw.**
 
 	curl --location --request POST 'http://localhost:8080/ticket' \
 	--header 'Content-Type: application/json' \
@@ -33,15 +33,15 @@ Postman collection:
     "userId": "2d0eea66-667e-404b-9aa6-abf323ae6268"
 	}'
 	
-- Once the draw is completed, user can get the draw details of the winning status.
+**Once the draw is completed, user can get the draw details of the winning status.**
 	
 	curl --location --request GET 'http://localhost:8080/draw?drawId=ca7fbabe-9e2f-4072-b1a6-1ed2c762ebd9'
 	
-- User gets the Completed draws to check the winner details.
+**User gets the Completed draws to check the winner details.**
 
 	curl --location --request GET 'http://localhost:8080/draws?status=COMPLETED'
 	
-- User can get the draws participated.
+**User can get the draws participated.**
 
 	curl --location --request GET 'http://localhost:8080/user/draws?userId=2d0eea66-667e-404b-9aa6-abf323ae6268'
 	
