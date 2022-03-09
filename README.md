@@ -45,7 +45,7 @@
 
 	curl --location --request GET 'http://localhost:8080/user/draws?userId=2d0eea66-667e-404b-9aa6-abf323ae6268'
 	
-##### Schedulers:
+### Schedulers:
 
 - Draw scheduler is running for creating draws continuously and periodically every 60 seconds cron expression defined in properties file.
 - Draw winner scheduler to pick 1 winner randomly from the active draw and the end date less than equal to current time runs every 20 seconds cron expression defined in properties file
@@ -56,7 +56,7 @@
 
 	$ mvn spring-boot:run
 
-##### 2. Run the application on Docker Compass
+##### 2. Run the application on Docker Compose
 
 	$ docker-compose up
 	$ docker-compose down
@@ -65,4 +65,15 @@
 
 Deploy the services on defaut namespace
 	
-	kubectl apply -f kubernetes/lottery-service.yml
+	kubectl apply -f lottery-service.yml
+	
+**Limitations and improvements of the application:**
+
+	1. As-is: To get the Winner information, RESTful API is used.
+	   Could-be: Implement Message queue for publishing the winner to all the user participated in the draw.
+
+	2. As-is: The application is not configured to handle stress.
+	   Could-be: Implement to handle scheduler with more than 1 replica set.
+	   
+	3. As-is: Cannot be scaled with schedulers for more than 1 replica set.
+	   Could-be: Implement Master-Slave executor pattern.
