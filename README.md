@@ -3,9 +3,12 @@
 ##### Lottery System Application using Spring Boot
 
 - The in-memory database used is H2.
-- RESTful APIs are exposed to front-end application. 
+- RESTful APIs are exposed to front-end application.
+- JUnit test cases using Mockito framework.
+- ThreadPoolTaskExecutor & ThreadPoolTaskScheduler is used for scheduling job.
+- Custom exception handler implemented using Controller Advice.
 
-##### Test the Lottery System APIs using postman collection or cURLs
+### Test the Lottery System APIs using postman collection or cURLs
 
 **Postman collection:**
 
@@ -29,8 +32,8 @@
 	curl --location --request POST 'http://localhost:8080/ticket' \
 	--header 'Content-Type: application/json' \
 	--data-raw '{
-    "drawId": "db0cb80d-058e-46c8-afc0-dce5b0b7aa15",
-    "userId": "2d0eea66-667e-404b-9aa6-abf323ae6268"
+    	"drawId": "db0cb80d-058e-46c8-afc0-dce5b0b7aa15",
+    	"userId": "2d0eea66-667e-404b-9aa6-abf323ae6268"
 	}'
 	
 **Once the draw is completed, user can get the draw details of the winning status.**
