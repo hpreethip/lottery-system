@@ -74,6 +74,6 @@ Deploy the services on defaut namespace
 
 	2. As-is: The application is not configured to handle stress.
 	   Could-be: Implement to handle scheduler with more than 1 replica set.
-	   
+
 	3. As-is: Cannot be scaled with schedulers for more than 1 replica set.
 	   Could-be: Implement Master-Slave executor pattern.
